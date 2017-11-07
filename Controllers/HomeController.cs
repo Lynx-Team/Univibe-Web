@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Univibe_Web.Models;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace Univibe_Web.Controllers
 {
@@ -29,8 +31,20 @@ namespace Univibe_Web.Controllers
             return View();
         }
         
+        
         public IActionResult News()
         {
+            var rssFeed = XDocument.Load("https://www.dvfu.ru/news/rss/");
+            XNamespace ns = rssFeed.Root.Name.Namespace;
+            var rssFeedOut= from item in rssFeed.Descendants(ns + "item")
+            select new RssModel
+            {
+                Title = item?.Element(ns + "title").Value ?? "",
+                Link = item?.Element(ns + "link").Value ?? "",
+                Description = item?.Value ?? ""
+            };
+            ViewBag.Rss = rssFeedOut.ToList();
+            
             return View();
         }
         public IActionResult Error()
