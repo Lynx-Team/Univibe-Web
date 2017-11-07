@@ -28,7 +28,11 @@ namespace Univibe_Web.Controllers
 
             return View();
         }
-
+        
+        public IActionResult News()
+        {
+            return View();
+        }
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
