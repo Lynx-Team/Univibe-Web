@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Wrapping element */
@@ -21,6 +22,9 @@
     width: 100%;
 }
 
+
+
+
 /* QR code generator */
 #qrCode {
     margin: 15px;
@@ -32,4 +36,71 @@
     .carousel-caption {
         display: none;
     }
+}
+
+.vertical_offset {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.news_image {
+    height: 210px;
+    background-size: cover;
+}
+
+.news_info {
+    height: 200px;
+    padding: 1px 0;
+    background-color: #006476;
+}
+
+.news_info_title {
+    font-size: 16px;
+    line-height: 20px;
+    overflow: hidden;
+    height: 120px;
+    margin: 0 0 8px;
+}
+
+.news_title_link {
+    color: white;
+}
+
+.news_info_wrap {
+    padding: 11px 13px;
+}
+
+.news_info_tag--small {
+    height: 17px;
+    line-height: 15px;
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.new_info_footer {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+.news_info_tag {
+    position: relative;
+    z-index: 30;
+    display: inline-block;
+    vertical-align: top;
+    text-transform: uppercase;
+    border: 1px solid #09D0CC;
+    border-radius: 2px;
+    font-weight: 700;
+    line-height: 1;
+    font-family: 'Proxima Nova','Arial','Helvetica Neue',sans-serif;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.news_info_header {
+    margin-bottom: 8px;
 }
