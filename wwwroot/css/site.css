@@ -22,6 +22,12 @@
     width: 100%;
 }
 
+.slider_img {
+    width:100%;
+    height: 450px !important;
+    object-fit: cover;
+}
+
 
 
 
@@ -64,6 +70,11 @@
 
 .news_title_link {
     color: white;
+}
+
+.news_title_link:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 .news_info_wrap {
