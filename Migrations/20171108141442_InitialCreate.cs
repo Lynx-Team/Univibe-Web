@@ -32,8 +32,6 @@ namespace UnivibeWeb.Migrations
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Group = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -42,12 +40,26 @@ namespace UnivibeWeb.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelegramID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TelegramUsers",
+                columns: table => new
+                {
+                    TelegramID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Subscribers = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Subscriptions = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TelegramUsers", x => x.TelegramID);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,6 +224,9 @@ namespace UnivibeWeb.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "TelegramUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
