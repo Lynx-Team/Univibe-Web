@@ -8,6 +8,9 @@
     <environment include="Development">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css'>
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="~/css/style.css">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -41,20 +44,19 @@
     </nav>
     <div class="main-content">
         @RenderBody()
-        <hr />
         <footer>
             <div class="container-full">
                 <div class="footer_wrap">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="footer_logo" src="~/img/logo.png"/> </a>
-                                </div>
-                                <div class="col-md-2">
                                     Титьхон
                                 </div>
                                 <div class="col-md-2">
                                     Олеш
+                                </div>
+                                <div class="col-md-2">
+                                    <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="footer_logo" src="~/img/logo.png"/> </a>
                                 </div>
                                 <div class="col-md-2">
                                     Леза
@@ -90,6 +92,7 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+        <script src="~/js/index.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
