@@ -288,3 +288,23 @@
 .checkbox label {
     padding-left: 0px;
 }
+
+.feature {
+    max-width: 980px;
+}
+
+@media (min-width: 768px) {
+    .feature {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        max-width: 980px;
+        margin: 0 auto 10px;
+        padding-left: 50px;
+    }
+}
+
+.adv_img {
+    height: 175px;
+}
