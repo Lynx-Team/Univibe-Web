@@ -11,7 +11,7 @@ using Univibe_Web.Data;
 namespace UnivibeWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171108141442_InitialCreate")]
+    [Migration("20171108144145_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,6 +186,10 @@ namespace UnivibeWeb.Migrations
                 {
                     b.Property<string>("TelegramID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FIO");
+
+                    b.Property<string>("Group");
 
                     b.Property<string>("Subscribers");
 

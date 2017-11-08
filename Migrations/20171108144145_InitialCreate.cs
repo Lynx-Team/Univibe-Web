@@ -54,6 +54,8 @@ namespace UnivibeWeb.Migrations
                 columns: table => new
                 {
                     TelegramID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Group = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Subscribers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Subscriptions = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

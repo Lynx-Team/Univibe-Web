@@ -82,5 +82,51 @@ namespace Univibe_Web.Controllers
             user.Subscriptions = str;
             context.SaveChanges();
         }
+
+        [HttpGet("{UserTelegramID}/{Group}")]
+        public void SetGroup(string UserTelegramID, string Group)
+        {
+            var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
+
+            if (user == null)
+                return;
+
+            user.Group = Group;
+            context.SaveChanges();
+        }
+
+        [HttpGet("{UserTelegramID}")]
+        public string GetGroup(string UserTelegramID)
+        {
+            var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
+
+            if (user == null)
+                return "";
+
+            return user.Group;
+        }
+
+        [HttpGet("{UserTelegramID}/{FIO}")]
+        public void SetFIO(string UserTelegramID, string FIO)
+        {
+            var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
+
+            if (user == null)
+                return;
+
+            user.FIO = FIO;
+            context.SaveChanges();
+        }
+
+        [HttpGet("{UserTelegramID}")]
+        public string GetFIO(string UserTelegramID)
+        {
+            var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
+
+            if (user == null)
+                return "";
+
+            return user.FIO;
+        }
     }
 }

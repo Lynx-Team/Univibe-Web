@@ -186,6 +186,10 @@ namespace UnivibeWeb.Migrations
                     b.Property<string>("TelegramID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("FIO");
+
+                    b.Property<string>("Group");
+
                     b.Property<string>("Subscribers");
 
                     b.Property<string>("Subscriptions");
