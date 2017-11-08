@@ -308,3 +308,10 @@
 .adv_img {
     height: 175px;
 }
+
+.schedule_table table td {
+    padding: 5px;
+    border: 1px solid black;
+    height: 25px;
+    vertical-align: middle;
+}
