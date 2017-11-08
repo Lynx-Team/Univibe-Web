@@ -14,6 +14,7 @@ namespace Univibe_Web.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Rss = (new RssItems()).Items;
             return View();
         }
 
