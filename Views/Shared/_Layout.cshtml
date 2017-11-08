@@ -27,13 +27,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Univibe_Web</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="navbar_logo" src="~/img/logo.png"/> </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="News">Contact</a></li>
+                    <!-- <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li> -->
+                    <li><a asp-area="" asp-controller="Home" asp-action="News">Новости</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -44,7 +44,30 @@
         <hr />
         <footer>
             <div class="container-full">
-                <div class="row"></div>
+                <div class="footer_wrap">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="footer_logo" src="~/img/logo.png"/> </a>
+                                </div>
+                                <div class="col-md-2">
+                                    Титьхон
+                                </div>
+                                <div class="col-md-2">
+                                    Олеш
+                                </div>
+                                <div class="col-md-2">
+                                    Леза
+                                </div>
+                                <div class="col-md-2">
+                                    Гуреш
+                                </div>
+                                <div class="col-md-2">
+                                    Дымочка
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
         </footer>
     </div>

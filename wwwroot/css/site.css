@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /* padding-top: 50px;
+    padding-bottom: 20px; */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -28,6 +28,27 @@
     object-fit: cover;
 }
 
+.navbar-inverse {
+    background-color: #122C34;
+}
+
+.nav > li {
+    margin-top: 22px;
+}
+
+.nav > li a {
+    color:white !important;
+}
+
+.navbar_logo {
+    z-index: 500;
+    height: 90px;
+    width: 120px;
+}
+
+.navbar {
+    min-height: 70px;
+}
 
 
 
@@ -188,3 +209,17 @@
     font-size: 12px;
     margin-top: 30px;
 } 
+
+
+.footer_wrap {
+    width: 100%;
+    background-color: #006476;
+    min-height: 200px;
+    color: white;
+    text-align: center;
+}
+
+.footer_logo {
+    width: 170px;
+    height: 150px;
+}
