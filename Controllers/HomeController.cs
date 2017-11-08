@@ -34,17 +34,7 @@ namespace Univibe_Web.Controllers
         
         public IActionResult News()
         {
-            var rssFeed = XDocument.Load("https://www.dvfu.ru/news/rss/");
-            XNamespace ns = rssFeed.Root.Name.Namespace;
-            var rssFeedOut= from item in rssFeed.Descendants(ns + "item")
-            select new RssModel
-            {
-                Title = item?.Element(ns + "title").Value ?? "",
-                Link = item?.Element(ns + "link").Value ?? "",
-                Description = item?.Value ?? ""
-            };
-            ViewBag.Rss = rssFeedOut.ToList();
-            
+            ViewBag.Rss = (new RssItems()).Items;
             return View();
         }
         public IActionResult Error()
