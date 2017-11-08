@@ -3,13 +3,66 @@
 }
 @using Univibe_Web.Models
 
-@for (int i = 0; i < 3 && i < (ViewBag.Rss as List<RssModel>).Count; ++i)
-{
-    <div>
-        <h1><a href=@ViewBag.Rss[i].Link>@ViewBag.Rss[i].Title</a></h1>
-        <div>
-            @Html.Raw(@ViewBag.Rss[i].Description)
+<section class="news">
+    <div class="container vertical_header_offset vertical_offset">
+        <div class="news_row row">
+            @for (int i = 0; i < 9 && i < (ViewBag.Rss as List<RssModel>).Count; ++i)
+            {
+                @if (i % 3 == 0 && i != 0) {
+                    @Html.Raw("</div><div class=\"news_row row\">")
+                }
+                <div class="col-md-4">
+                    <div class="main_news">
+                        <div class="news_cover" style="background-image: url(@ViewBag.Rss[i].ImageUrl)"></div>
+                        <div class="news_wrap">
+                            <div class="news_wrap_tag"> <a  href="#"> Новости </a></div>
+                            <div class="news_wrap_text">
+                                <h3 class="news_wrap_title"> 
+                                    <a class="" href=@ViewBag.Rss[i].Link>
+                                        <span > @ViewBag.Rss[i].Title </span>
+                                    </a>
+                                </h3>
+                            <div class="news_wrap_bottom">
+                                <span> @ViewBag.Rss[i].PubDate </span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            }
         </div>
     </div>
+</section>
 
-}
+
+<section class="read_also_news">
+    <div class="container vertical_offset">
+        <div class="row">
+            @for (int i = 0; i < 4 && i < (ViewBag.Rss as List<RssModel>).Count; ++i)
+            {
+                <div class="col-md-3 read_news">
+                    <div class="news_image" style="background-image: url(@ViewBag.Rss[i].ImageUrl)"></div>
+                    <div class="news_info">
+                        <div class="news_info_wrap">
+                            <div class="news_info_header">
+                                <a class="news_info_tag news_info_tag--small" href="#"> Наука </a>
+                            </div>
+                                <h2 class="news_info_title">
+                                    <a class="news_title_link" href=@ViewBag.Rss[i].Link>
+                                        <span > @ViewBag.Rss[i].Title </span>
+                                    </a>
+                                </h2>
+                            <div class="news_info_footer">
+                                <span> @ViewBag.Rss[i].PubDate </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
