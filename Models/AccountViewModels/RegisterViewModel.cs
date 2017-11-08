@@ -13,6 +13,9 @@ namespace Univibe_Web.Models.AccountViewModels
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
+        [Display(Name = "TelegramID")]
+        public string TelegramID { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -11,7 +11,7 @@ using Univibe_Web.Data;
 namespace UnivibeWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171107232143_InitialCreate")]
+    [Migration("20171108141442_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -144,10 +144,6 @@ namespace UnivibeWeb.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("Group");
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -166,6 +162,8 @@ namespace UnivibeWeb.Migrations
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<string>("TelegramID");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
@@ -182,6 +180,20 @@ namespace UnivibeWeb.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Univibe_Web.Models.TelegramUser", b =>
+                {
+                    b.Property<string>("TelegramID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Subscribers");
+
+                    b.Property<string>("Subscriptions");
+
+                    b.HasKey("TelegramID");
+
+                    b.ToTable("TelegramUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
