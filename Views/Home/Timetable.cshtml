@@ -1,0 +1,52 @@
+@using Univibe_Web.Models.Timetable
+@using Univibe_Web.Data
+
+@{
+    ViewBag.CurrentWeekday = "";
+    bool hasTop = false;
+    bool hasBot = false;
+}
+
+<section>
+<table>
+@for (int i = 0; i < ViewBag.Timetable.Count; ++i)
+{
+    var item = ViewBag.Timetable[i];
+    if (ViewBag.CurrentWeekday != item.Weekday)
+    {
+        ViewBag.CurrentWeekday = item.Weekday;
+        int span = ViewBag.WeekdaysRowSpan[item.Weekday];
+        <tr><td valign="top" align="left" rowspan="@(span)">@item.Weekday</td></tr>
+    }
+    else
+    {
+        if (item.Parity == 2)
+        {   
+            <tr><td>@item.Subject</td><td>@item.Teacher</td></tr>
+        }
+        else
+        {
+            if (item.Parity == 1)
+            {
+                if (i + 1 < ViewBag.Timetable.Count && ViewBag.Timetable[i + 1].Numb == item.Numb && ViewBag.Timetable[i + 1].Weekday == ViewBag.CurrentWeekday)
+                {
+                    <tr><td>@item.Subject</td><td>@item.Teacher</td></tr>
+                    <tr><td>ViewBag.Timetable[i + 1].Subject</td><td>ViewBag.Timetable[i + 1]Teacher</td></tr>
+                    i++;
+                }
+                else
+                    {
+                        <tr><td>@item.Subject</td><td>@item.Teacher</td></tr>
+                        <tr><td></td><td></td></tr>
+                    }
+            }
+            else
+            {
+                <tr><td></td><td></td></tr>
+                <tr><td>@item.Subject</td><td>@item.Teacher</td></tr>
+            }
+        }
+    }
+}
+</section>
+</table>

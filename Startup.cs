@@ -11,14 +11,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Univibe_Web.Data;
 using Univibe_Web.Models;
 using Univibe_Web.Services;
+using Univibe_Web.Models.Timetable;
 
 namespace Univibe_Web
 {
     public class Startup
     {
+        public static string DefaultConnectionString;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            DefaultConnectionString = Configuration.GetConnectionString("DefaultConnection");
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +29,7 @@ namespace Univibe_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<TimetableDBContext>(options => options.UseSqlServer(DefaultConnectionString));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
