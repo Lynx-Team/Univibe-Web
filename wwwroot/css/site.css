@@ -11,6 +11,14 @@
     padding-right: 15px;
 }
 
+.bg_color_gray {
+    background-color: #ccc;
+}
+
+.bg_color_white {
+    background-color: white;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -267,4 +275,16 @@
 .footer_logo {
     width: 170px;
     height: 150px;
+}
+
+.thumbnail {
+    background-size: contain;
+}
+
+.checkbox_login_form {
+    margin-top: 4px !important;
+}
+
+.checkbox label {
+    padding-left: 0px;
 }
