@@ -38,6 +38,17 @@ namespace Univibe_Web.Controllers
         }
 
         [HttpGet("{UserTelegramID}")]
+        public string IsRegistered(string UserTelegramID)
+        {
+            var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
+
+            if (user == null)
+                return "false";
+            else
+                return "true";
+        }
+
+        [HttpGet("{UserTelegramID}")]
         public string GetSubscribers(string UserTelegramID)
         {
             var user = context.TelegramUsers.Where(x => x.TelegramID == UserTelegramID).SingleOrDefault();
