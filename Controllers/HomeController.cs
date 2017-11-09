@@ -31,7 +31,7 @@ namespace Univibe_Web.Controllers
             return View();
         }
         
-        public IActionResult Timetable(string groupName = "Б8303а")
+        public IActionResult Timetable(string groupName = "Б3239а")
         {
             using (var db = new TimetableDBContext())
             {
@@ -48,10 +48,23 @@ namespace Univibe_Web.Controllers
                     Numb = lt.Numb, Subject = s.Subject_Name, Teacher = t.Teacher_Name, Parity = lt.Parity})
                     .ToList();
                 var weekdaysRowSpan = new Dictionary<string, int>();
-                foreach (var item in list)
+                for (int i = 0; i < list.Count; ++i)
                 {
-                    if (!weekdaysRowSpan.ContainsKey(item.Weekday)) weekdaysRowSpan[item.Weekday] = 0;
-                    weekdaysRowSpan[item.Weekday] += item.Parity == 2 ? 1 : 2;
+                    var item = list[i];
+                    if (!weekdaysRowSpan.ContainsKey(item.Weekday)) weekdaysRowSpan[item.Weekday] = 1;
+                        switch (item.Parity)
+                        {
+                            case 2:
+                                weekdaysRowSpan[item.Weekday] += 1;
+                                break;
+                            case 1: case 0:
+                                weekdaysRowSpan[item.Weekday] += 2;
+                                if (i + 1 < list.Count && list[i + 1].Weekday == item.Weekday && list[i + 1].StartTime == item.StartTime)
+                                    i++;
+                                break;
+                            default:
+                                break;
+                        }
                 }
                     
                 ViewBag.Timetable = list;

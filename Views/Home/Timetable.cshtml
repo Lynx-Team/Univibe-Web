@@ -1,10 +1,12 @@
 @using Univibe_Web.Models.Timetable
 @using Univibe_Web.Data
-
+@using System.Web
 @{
     ViewBag.CurrentWeekday = "";
     bool hasTop = false;
     bool hasBot = false;
+    string str = "";
+    int span = 0;
 }
 
 <section class="schedule_table vertical_header_offset" >
@@ -17,38 +19,53 @@
                 if (ViewBag.CurrentWeekday != item.Weekday)
                 {
                     ViewBag.CurrentWeekday = item.Weekday;
-                    int span = ViewBag.WeekdaysRowSpan[item.Weekday];
-                    <tr><td valign="top" align="left" rowspan="@(span)">@item.Weekday</td></tr>
+                    span = ViewBag.WeekdaysRowSpan[item.Weekday];
+                    i--;
+                    <tr><td align="right" rowspan="@span">@item.Weekday</td></tr>
+                    continue;
                 }
-                else
+                if (item.Parity == 2)
                 {
-                    if (item.Parity == 2)
-                    {   
-                        <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
-                    }
-                    else
-                    {
-                        @if (item.Parity == 1)
-                        {
-                            if (i + 1 < ViewBag.Timetable.Count && ViewBag.Timetable[i + 1].Numb == item.Numb && ViewBag.Timetable[i + 1].Weekday == ViewBag.CurrentWeekday)
-                            {
-                                <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
-                                <tr><td align="right">ViewBag.Timetable[i + 1].Subject</td><td align="right">ViewBag.Timetable[i + 1]Teacher</td></tr>
-                                i+= 2;
-                            }
-                            else
-                                {
-                                    <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
-                                    <tr><td align="right"></td> <td align="right"></td></tr>
-                                }
-                        }
-                        else
-                        {
-                            <tr><td align="right"></td> <td align="right"></td></tr>
-                            <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
-                        }
-                    }
+                    <tr><td align="left">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
+                    continue;
                 }
+                if (item.Parity == 1)
+                {
+                    if (i + 1 > ViewBag.Timetable.Count)
+                    {
+                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
+                        <tr><td align="right" colspan="3">-</td></tr>
+                        continue;   
+                    }
+                    var nextItem = ViewBag.Timetable[i + 1];
+                    if (nextItem.Weekday == item.Weekday && nextItem.StartTime == item.StartTime)
+                    {
+                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
+                        <tr><td align="right">@nextItem.Subject</td><td align="right">@nextItem.Teacher</td><td align="right">@nextItem.Classroom</td></tr>
+                        i++;
+                        continue;
+                    }
+                    <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
+                    <tr><td align="right" colspan="3">-</td></tr>
+                    continue;
+                }
+                if (i + 1 > ViewBag.Timetable.Count)
+                    {
+                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right" colspan="3">-</td></tr>
+                        <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
+                        continue;
+                    }
+                    var nextitem = ViewBag.Timetable[i + 1];
+                    if (nextitem.Weekday == item.Weekday && nextitem.StartTime == item.StartTime)
+                    {
+                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
+                        <tr><td align="right">@nextitem.Subject</td><td align="right">@nextitem.Teacher</td><td align="right">@nextitem.Classroom</td></tr>
+                        i++;
+                        continue;
+                    }
+                    <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right" colspan="3">-</td></tr>;
+                    <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>;
+                    continue;
             }
             </table>
         </div>
