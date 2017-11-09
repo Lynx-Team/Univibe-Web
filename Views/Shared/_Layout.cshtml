@@ -45,38 +45,38 @@
             </div>
         </div>
     </nav>
-    <div class="main-content">
-        @RenderBody()
-        <footer>
-            <div class="container-full">
-                <div class="footer_wrap">
-                        <div class="container">
-                            <div class="row">
-                                <!-- <div class="col-md-2">
-                                    Титьхон
-                                </div>
-                                <div class="col-md-2">
-                                    Олеш
-                                </div> -->
-                                <div align="center">
-                                    <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="footer_logo" src="~/img/logo.png"/> </a>
-                                </div>
-                                <!-- <div class="col-md-2">
-                                    Леза
-                                </div>
-                                <div class="col-md-2">
-                                    Гуреш
-                                </div>
-                                <div class="col-md-2">
-                                    Дымочка
-                                </div> -->
-                            </div>
+    
+    @RenderBody()
+
+    <footer>
+    <div class="container-full">
+        <div class="footer_wrap">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-md-2">
+                            Титьхон
                         </div>
-                    <span class="copyright_text">Copyright Lynx-Team 2017</span>
+                        <div class="col-md-2">
+                            Олеш
+                        </div> -->
+                        <div align="center">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" > <img class="footer_logo" src="~/img/logo.png"/> </a>
+                        </div>
+                        <!-- <div class="col-md-2">
+                            Леза
+                        </div>
+                        <div class="col-md-2">
+                            Гуреш
+                        </div>
+                        <div class="col-md-2">
+                            Дымочка
+                        </div> -->
+                    </div>
                 </div>
-            </div>
-        </footer>
+            <span class="copyright_text">Copyright Lynx-Team 2017</span>
+        </div>
     </div>
+</footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
