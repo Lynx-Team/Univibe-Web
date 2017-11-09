@@ -28,13 +28,13 @@
                     }
                     else
                     {
-                        if (item.Parity == 1)
+                        @if (item.Parity == 1)
                         {
                             if (i + 1 < ViewBag.Timetable.Count && ViewBag.Timetable[i + 1].Numb == item.Numb && ViewBag.Timetable[i + 1].Weekday == ViewBag.CurrentWeekday)
                             {
                                 <tr><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
                                 <tr><td align="right">ViewBag.Timetable[i + 1].Subject</td><td align="right">ViewBag.Timetable[i + 1]Teacher</td></tr>
-                                i++;
+                                i+= 2;
                             }
                             else
                                 {
