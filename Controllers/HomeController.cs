@@ -31,7 +31,7 @@ namespace Univibe_Web.Controllers
             return View();
         }
         
-        public IActionResult Timetable(string groupName = "Б3239а")
+        public IActionResult Timetable(string groupName = "Б8303а")
         {
             using (var db = new TimetableDBContext())
             {

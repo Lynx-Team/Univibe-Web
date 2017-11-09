@@ -58,7 +58,7 @@
                     var nextitem = ViewBag.Timetable[i + 1];
                     if (nextitem.Weekday == item.Weekday && nextitem.StartTime == item.StartTime)
                     {
-                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td></tr>
+                        <tr><td align="left" rowspan="2">@item.StartTime - @item.EndTime</td><td align="right">@item.Subject</td><td align="right">@item.Teacher</td><td align="right">@item.Classroom</td></tr>
                         <tr><td align="right">@nextitem.Subject</td><td align="right">@nextitem.Teacher</td><td align="right">@nextitem.Classroom</td></tr>
                         i++;
                         continue;
