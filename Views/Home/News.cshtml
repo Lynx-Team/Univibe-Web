@@ -4,6 +4,7 @@
 @using Univibe_Web.Models
 
 <section class="news">
+    <h2 class="news_head">Новости</h2>
     <div class="container vertical_header_offset vertical_offset">
         <div class="news_row row">
             @for (int i = 0; i < 9 && i < (ViewBag.Rss as List<RssModel>).Count; ++i)

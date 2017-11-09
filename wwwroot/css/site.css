@@ -173,6 +173,16 @@
     margin-top: 120.4px;
 }
 
+.news_head {
+    text-align: center;
+    padding: 20px 0 25px 0;
+    border-bottom: 3px solid #0b4f6c;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    margin-bottom: -60px;
+}
+
 .news_image {
     height: 210px;
     background-size: cover;
