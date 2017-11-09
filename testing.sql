@@ -1,4 +1,4 @@
-Select * from TelegramUsers;
+-- Select * from TelegramUsers;
 
 -- DROP TABLE AspNetRoles;
 -- DROP TABLE AspNetUsers;

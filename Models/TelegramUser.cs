@@ -13,6 +13,7 @@ namespace Univibe_Web.Models
     {
         [Key]
         public string TelegramID { get; set; }
+        public string UserLogin { get; set; }
         public string Group { get; set; }
         public string FIO { get; set; }
         public string Subscribers { get; set; }
