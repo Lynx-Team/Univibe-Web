@@ -86,50 +86,51 @@
 </div>
 
 
-<section class="our_features vertical_offset bg_color_gray">
+<section class="our_features vertical_offset">
     <div class="container body-content ">
         <div class="row">
-            <div class="feature">
+            <div class="feature feat_schedule">
                 <div class="col-md-8">
                     <div class="feature_text">
                         <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            Надоело спрашивать расписание у одногруппников?
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-12" align="center">
                     <img class="feature_img" src="~/img/calendar.png" />
                 </div>
             </div>
-            <div class="feature">
-                <div class="col-md-4">
-                    <img class="feature_img" src="~/img/calendar.png" />
+            <div class="feature feat_lesson">
+                <div class="col-md-4 col-xs-12 hidden-mobile" align="center">
+                    <img class="feature_img" src="~/img/lesson.png" />
                 </div>
                 <div class="col-md-8">
                     <div class="feature_text">
                         <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            Постоянно забываешь, какая сейчас пара у тебя или твоего преподавателя?
                         </p>
                     </div>
+                </div>
+                <div class="col-md-4 col-xs-12 visible-mobile" style="display: none" align="center">
+                    <img class="feature_img" src="~/img/lesson.png" />
                 </div>
             </div>
-            <div class="feature">
+            <div class="feature feat_consult">
                 <div class="col-md-8">
                     <div class="feature_text">
                         <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            Хочешь всегда быть вкурсе внезапных консультаций, и всё это в одном мессенджере?
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <img class="feature_img" src="~/img/calendar.png" />
+                <div class="col-md-4 col-xs-12" align="center">
+                    <img class="feature_img" src="~/img/consulting.png" />
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-@Html.Partial("News")
 
 <section class="adventages vertical_offset bg_color_gray">
     <div class="container ">
@@ -161,3 +162,7 @@
         </div>
     </div>
 </section>
+
+@Html.Partial("News")
+
+
